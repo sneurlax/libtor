@@ -4,3 +4,7 @@ members = [
     "libtor",
     "libtor-derive",
 ]
+
+exclude = [
+    "scripts/linux/build/libtor",
+]
