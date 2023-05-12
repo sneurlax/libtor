@@ -7,4 +7,5 @@ members = [
 
 exclude = [
     "scripts/linux/build/libtor",
+    "scripts/android/build/libtor",
 ]
