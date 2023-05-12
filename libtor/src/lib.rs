@@ -348,18 +348,18 @@ pub struct Tor {
 
 impl Tor {
     /// Create a new instance
-    pub fn new() -> Tor {
+    #[no_mangle] pub extern fn new() -> Tor {
         Default::default()
     }
 
     /// Add a configuration flag
-    pub fn flag(&mut self, flag: TorFlag) -> &mut Tor {
+    #[no_mangle] pub extern fn flag(&mut self, flag: TorFlag) -> &mut Tor {
         self.flags.push(flag);
         self
     }
 
     /// Start the Tor daemon in the current thread
-    pub fn start(&self) -> Result<u8, Error> {
+    #[no_mangle] pub extern fn start(&self) -> Result<u8, Error> {
         unsafe {
             let config = tor_sys::tor_main_configuration_new();
             let mut argv = vec![String::from("tor")];
@@ -391,14 +391,14 @@ impl Tor {
     }
 
     /// Starts the Tor daemon in a background detached thread and return its handle
-    pub fn start_background(&self) -> JoinHandle<Result<u8, Error>> {
+    #[no_mangle] pub extern fn start_background(&self) -> JoinHandle<Result<u8, Error>> {
         let cloned = self.clone();
         thread::spawn(move || cloned.start())
     }
 }
 
 /// Generate a hashed password to use HashedControlPassword
-pub fn generate_hashed_password(secret: &str) -> String {
+#[no_mangle] pub extern fn generate_hashed_password(secret: &str) -> String {
     // This code is rewrite of
     // https://gist.github.com/s4w3d0ff/9d65ec5866d78842547183601b2fa4d5
     // s4w3d0ff and jamesacampbell, Thank you!

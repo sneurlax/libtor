@@ -14,6 +14,7 @@ cargo install cargo-ndk
 ### Install dependencies
 ```sh
 sudo apt install git build-essential cmake llvm clang pkg-config cargo rustc libssl-dev libc6-dev-i386
+cargo install --force cbindgen
 ```
 
 ### Run build scripts
