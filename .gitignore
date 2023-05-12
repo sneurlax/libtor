@@ -1,6 +1,10 @@
 /target
 Cargo.lock
 *.swp
+/local.properties
+.idea
 
 /scripts/*/build/*
 /scripts/*/cache/*
+
+android/src/main/jniLibs/*
