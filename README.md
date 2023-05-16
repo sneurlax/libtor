@@ -36,6 +36,10 @@ cd scripts/android
 ./build_all.sh
 ```
 
+## Development notes
+
+To generate libtor/libtor.h: `flutter pub run ffigen --config ffigen.yaml`
+
 ## Flutter FFI plugin template
 
 `libtor` is a Rust crate for bundling inside your project a fully-running Tor daemon.
